@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sangyang.mapper.FilghtMapper">
+<select id="queryFilght" resultType="com.sangyang.vo.Filght" >
+select * from haxian
+</select>
+<insert id="addFilght" parameterType="com.sangyang.vo.Filght">
+insert into haxian values(#{hid},'${hname}','${qcity}','${dcity}',sysdate,sysdate)
+</insert>
+
+<select id="queryupd" parameterType="java.lang.Integer" resultType="com.sangyang.vo.Filght">
+select * from haxian where hid= #{value}
+
+</select>
+
+<update id="queryupda" parameterType="com.sangyang.vo.Filght">
+update haxian set hname='${hname}',qcity='${qcity}',dcity='${dcity}',hdate=to_date('${hdate}','yyyy-mm-dd'),hsdate=to_date('${hsdate}','yyyy-mm-dd') where hid='${hid}'
+</update>
+
+
+
+
+</mapper>
